@@ -3,7 +3,7 @@
     <!-- String do Projeto -->
     <string name = "appTextoTitulo">JO-KEN-PO PLAY</string>
     <string name="appTextoResultado">Clique na sua opção:</string>
-    <string name="appMelhor3">Melhor de 3:</string>
+    <string name="appMelhor3">Melhor de 3</string>
     <string name="appTextoApp3">App venceu melhor de 3</string>
     <string name="appTextSelec3">Você venceu melhor de 3</string>
     <string name="appTextoVocê">Você</string>

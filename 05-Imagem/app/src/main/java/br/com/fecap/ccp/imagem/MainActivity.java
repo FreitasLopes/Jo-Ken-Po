@@ -2,6 +2,7 @@ package br.com.fecap.ccp.imagem;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean pontuacaoFinal = false;  // Controla a contagem de pontos
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+
+
+
+
     public void selectPapel(View view){
         this.opcaoSelecionada("papel");
     }
@@ -44,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         TextView textResultApp = findViewById(R.id.textResultApp);
         TextView textResultSelecao = findViewById(R.id.textResultSelecao);
         TextView textPontuacao = findViewById(R.id.textPontuacao);
+
+
 
         // extrai dos Objetos, recuperando a String que pompões:
         String resultApp = textResultApp.getText().toString();
@@ -73,6 +82,16 @@ public class MainActivity extends AppCompatActivity {
                 imagemResultado.setImageResource(R.drawable.tesoura);
                 break;
         }
+
+
+
+
+
+
+
+
+
+
         // Logica do Jogo J Ken P - Definir quem é o vencedor
         if (
                 (opcaoApp.equals("tesoura") && opcaoSelecionada.equals("papel")) ||
@@ -120,13 +139,21 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
+
     public void reiniciar(View view){
         // Instanciamento dos Objetos ImagemView e TextView
         ImageView imagemResultado = findViewById(R.id.imagePadrao);
-        TextView textResultado = findViewById(R.id.textResultado);
         TextView textResultApp = findViewById(R.id.textResultApp);
+        TextView textResultado = findViewById(R.id.textResultado);
         TextView textResultSelecao = findViewById(R.id.textResultSelecao);
         TextView textPontuacao = findViewById(R.id.textPontuacao);
+       TextView appName = findViewById(R.id.textApp);
+        TextView nameVoce = findViewById(R.id.textVoce);
+        TextView textMelhorDe3 = findViewById(R.id.textNameMelhorDe3);
+        TextView textX = findViewById(R.id.textSimboloX);
+        TextView textNamePont = findViewById(R.id.textNamePontuacao);
 
         // Variáveis recebem dados para zerados
         imagemResultado.setImageResource(R.drawable.padrao);
@@ -134,11 +161,100 @@ public class MainActivity extends AppCompatActivity {
         textResultApp.setText("0");
         textResultSelecao.setText("0");
         textPontuacao.setText("0");
+
+        //exibir todos os modos de jogo
+        textResultSelecao.setTextColor(getResources().getColor(R.color.appFonte1));
+        textResultApp.setTextColor(getResources().getColor(R.color.appFonte1));
+        textPontuacao.setVisibility(View.VISIBLE);
+        textResultApp.setVisibility(View.VISIBLE);
+        textResultSelecao.setVisibility(View.VISIBLE);
+        appName.setVisibility(View.VISIBLE);
+        nameVoce.setVisibility(View.VISIBLE);
+        textMelhorDe3.setVisibility(View.VISIBLE);
+        textX.setVisibility(View.VISIBLE);
+        textNamePont.setVisibility(View.VISIBLE);
+        textPontuacao.setVisibility(View.VISIBLE);
+        textResultApp.setVisibility(View.VISIBLE);
+
+
+        // Reativa a contagem de pontos
+        pontuacaoFinal = false;
+
+    }
+
+
+
+
+
+
+    // logica para definir o modo do jogo JOKENPO
+
+    public void modoJogo(View view) {
+
+        // instanciando os objetos TextView
+        TextView textResultado = findViewById(R.id.textResultado);
+        TextView textPontuacao = findViewById(R.id.textPontuacao); // exibir pontuação
+        TextView textResultApp = findViewById(R.id.textResultApp); //  exibir resultado do app
+        TextView textResultSelecao = findViewById(R.id.textResultSelecao);
+        TextView textNamePont = findViewById(R.id.textNamePontuacao);
+        TextView appName = findViewById(R.id.textApp);
+        TextView nameVoce = findViewById(R.id.textVoce);
+        TextView textMelhorDe3 = findViewById(R.id.textNameMelhorDe3);
+        TextView textX = findViewById(R.id.textSimboloX);
+
+
+        // reiniciando os valores
+        textResultApp.setText("0");
+        textResultSelecao.setText("0");
+        textPontuacao.setText("0");
+        textResultado.setText(R.string.appTextoResultado);
         textResultSelecao.setTextColor(getResources().getColor(R.color.appFonte1));
         textResultApp.setTextColor(getResources().getColor(R.color.appFonte1));
 
         // Reativa a contagem de pontos
         pontuacaoFinal = false;
+
+
+
+        // ver qual botao foi escolhido.
+        if (view.getId() == R.id.btnMelhorDe3) {
+
+        // adicona o modo melhor de tres na tela e esconde a pontuação corrida
+            textPontuacao.setVisibility(View.GONE);
+           textNamePont.setVisibility(View.GONE);
+            textResultApp.setVisibility(View.VISIBLE);
+            textPontuacao.setVisibility(View.GONE);
+            textResultApp.setVisibility(View.VISIBLE);
+            textResultSelecao.setVisibility(View.VISIBLE);
+            appName.setVisibility(View.VISIBLE);
+            nameVoce.setVisibility(View.VISIBLE);
+            textMelhorDe3.setVisibility(View.VISIBLE);
+            textX.setVisibility(View.VISIBLE);
+
+        // Se o botão Pontuação Corrida for clicado
+        } else if (view.getId() == R.id.btnPontCorrida) {
+
+            // adicionando o modo de pontuação corrida e escondendo o de melhor de 3
+            textNamePont.setVisibility(View.VISIBLE);
+            textPontuacao.setVisibility(View.VISIBLE);
+            textResultApp.setVisibility(View.GONE);
+            textResultSelecao.setVisibility(View.GONE);
+            appName.setVisibility(View.GONE);
+            nameVoce.setVisibility(View.GONE);
+            textMelhorDe3.setVisibility(View.GONE);
+            textX.setVisibility(View.GONE);
+
+        }
     }
 
+
+
+
+
+
+
+
 }
+
+
+
