@@ -244,7 +244,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/appBotao"
         android:onClick="mudarModoJogo"
-        android:text="Alternar modo"
+        android:text="Tipo de Partida"
         android:textAlignment="center"
         android:textColor="@color/appFonte2"
         android:textSize="25sp"

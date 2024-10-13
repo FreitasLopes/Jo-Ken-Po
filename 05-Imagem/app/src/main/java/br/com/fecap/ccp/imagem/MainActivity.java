@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
         textPontuacao.setText("0");
 
        //exibir o nome do botao quando nenhum modo foi escolhido
-        btnMudarModo.setText("Alternar Modo");
+        btnMudarModo.setText("Tipo de Partida");
 
         //exibir todos os modos de jogo
 
