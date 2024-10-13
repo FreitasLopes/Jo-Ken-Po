@@ -17,6 +17,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private boolean pontuacaoFinal = false;  // Controla a contagem de pontos
+    private boolean melhorDe3 = false;
 
 
     @Override
@@ -30,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
-
 
 
 
@@ -84,14 +84,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-
-
-
-
-
-
-
         // Logica do Jogo J Ken P - Definir quem é o vencedor
         if (
                 (opcaoApp.equals("tesoura") && opcaoSelecionada.equals("papel")) ||
@@ -143,26 +135,35 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void reiniciar(View view){
+
+
         // Instanciamento dos Objetos ImagemView e TextView
+
         ImageView imagemResultado = findViewById(R.id.imagePadrao);
         TextView textResultApp = findViewById(R.id.textResultApp);
         TextView textResultado = findViewById(R.id.textResultado);
         TextView textResultSelecao = findViewById(R.id.textResultSelecao);
         TextView textPontuacao = findViewById(R.id.textPontuacao);
-       TextView appName = findViewById(R.id.textApp);
+        TextView appName = findViewById(R.id.textApp);
+        Button btnMudarModo = findViewById(R.id.btnAlternarModo);
         TextView nameVoce = findViewById(R.id.textVoce);
         TextView textMelhorDe3 = findViewById(R.id.textNameMelhorDe3);
         TextView textX = findViewById(R.id.textSimboloX);
         TextView textNamePont = findViewById(R.id.textNamePontuacao);
 
         // Variáveis recebem dados para zerados
+
         imagemResultado.setImageResource(R.drawable.padrao);
         textResultado.setText(R.string.appTextoResultado);
         textResultApp.setText("0");
         textResultSelecao.setText("0");
         textPontuacao.setText("0");
 
+       //exibir o nome do botao quando nenhum modo foi escolhido
+        btnMudarModo.setText("Alternar Modo");
+
         //exibir todos os modos de jogo
+
         textResultSelecao.setTextColor(getResources().getColor(R.color.appFonte1));
         textResultApp.setTextColor(getResources().getColor(R.color.appFonte1));
         textPontuacao.setVisibility(View.VISIBLE);
@@ -183,15 +184,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void mudarModoJogo(View view){
 
 
+        //instanciando objetos TextView e Button
 
-
-    // logica para definir o modo do jogo JOKENPO
-
-    public void modoJogo(View view) {
-
-        // instanciando os objetos TextView
+        Button btnMudarModo = findViewById(R.id.btnAlternarModo);
         TextView textResultado = findViewById(R.id.textResultado);
         TextView textPontuacao = findViewById(R.id.textPontuacao); // exibir pontuação
         TextView textResultApp = findViewById(R.id.textResultApp); //  exibir resultado do app
@@ -203,7 +201,8 @@ public class MainActivity extends AppCompatActivity {
         TextView textX = findViewById(R.id.textSimboloX);
 
 
-        // reiniciando os valores
+        // zerando os valores
+
         textResultApp.setText("0");
         textResultSelecao.setText("0");
         textPontuacao.setText("0");
@@ -215,13 +214,14 @@ public class MainActivity extends AppCompatActivity {
         pontuacaoFinal = false;
 
 
+        if (melhorDe3) {
 
-        // ver qual botao foi escolhido.
-        if (view.getId() == R.id.btnMelhorDe3) {
 
-        // adicona o modo melhor de tres na tela e esconde a pontuação corrida
+            // adiciona o modo melhor de tres na tela e esconde a pontuação corrida
+
+            btnMudarModo.setText("Melhor de 3");
             textPontuacao.setVisibility(View.GONE);
-           textNamePont.setVisibility(View.GONE);
+            textNamePont.setVisibility(View.GONE);
             textResultApp.setVisibility(View.VISIBLE);
             textPontuacao.setVisibility(View.GONE);
             textResultApp.setVisibility(View.VISIBLE);
@@ -231,10 +231,10 @@ public class MainActivity extends AppCompatActivity {
             textMelhorDe3.setVisibility(View.VISIBLE);
             textX.setVisibility(View.VISIBLE);
 
-        // Se o botão Pontuação Corrida for clicado
-        } else if (view.getId() == R.id.btnPontCorrida) {
-
+        }  else  {
             // adicionando o modo de pontuação corrida e escondendo o de melhor de 3
+
+            btnMudarModo.setText("Pontuação");
             textNamePont.setVisibility(View.VISIBLE);
             textPontuacao.setVisibility(View.VISIBLE);
             textResultApp.setVisibility(View.GONE);
@@ -245,6 +245,8 @@ public class MainActivity extends AppCompatActivity {
             textX.setVisibility(View.GONE);
 
         }
+        // mudar o modo do jogo
+        melhorDe3= !melhorDe3;
     }
 
 
