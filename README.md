@@ -1,6 +1,17 @@
 # 🪨📄✂️ **JOKENPO - Pedra, Papel e Tesoura**  
 ### *Desafie a máquina em uma batalha de escolhas clássicas!*
 
+<hr>
+
+<h2>Integrantes do Grupo</h2>
+<ul>
+  <li><strong>Jenifer Barreto</strong> - Matrícula: 23025664</li>
+  <li><strong>Maria Eduarda de Freitas Lopes</strong> - Matrícula: 23025447</li>
+  <li><strong>Sabrinna Vicente</strong> - Matrícula: 23025550</li>
+  <li><strong>Beatriz de Souza</strong> - Matrícula: 23025365</li>
+</ul>
+
+<hr>
 
 
 🚀 Funcionalidades:
