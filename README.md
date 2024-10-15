@@ -45,5 +45,4 @@ Veja o resultado e acompanhe seu progresso no modo escolhido.
 
 
 
-
 <img src="https://github.com/user-attachments/assets/1371e70f-89ac-4be6-8834-2f8fd770a79e" alt="Foto Jokenpo" width="300" />
